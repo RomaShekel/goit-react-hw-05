@@ -1,0 +1,22 @@
+.link {
+    text-decoration: none;
+    margin-right: 10px;
+    color: black;
+    font-size: 20px;
+    font-weight: 550;
+}
+.navDiv{
+    border-bottom: solid rgb(217, 65, 23) 1px;
+    padding-bottom: 15px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+
+.link:hover{
+    color:rgb(217, 65, 23);
+    text-decoration: underline;
+}
+.active {
+    color: rgb(217, 65, 23);
+    text-decoration: underline;
+}

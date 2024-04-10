@@ -25,4 +25,15 @@ body {
     display: block;
     max-width: 100%;
   }
+
+.link {
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+}
+
+.link:hover{
+  color:rgb(217, 65, 23);
+  text-decoration: underline;
+}
   

@@ -1,0 +1,16 @@
+.button {
+    padding: 9px 18px;
+    border-radius: 8px;
+    background: rgb(245, 109, 71);
+    border: none;
+    color: #FFF;
+    margin-top: 10px;
+}
+.button:hover {
+    background: rgb(217, 65, 23);
+}
+.input{
+    padding: 8px 16px;
+    margin-right: 5px;
+    border-radius: 8px;
+}
