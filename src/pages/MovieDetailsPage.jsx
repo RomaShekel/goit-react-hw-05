@@ -1,6 +1,6 @@
 import axios from "axios"
 import { SearchMoviesById } from "../films-api"
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import { useParams, Link, Outlet, NavLink, useLocation } from "react-router-dom"
 import css from "./pagesStyles/MovieDetailsPage.module.css"
 import clsx from "clsx"
@@ -37,7 +37,8 @@ const buildLinkClass = ({ isActive }) => {
   };
 
   const location = useLocation();
-  const backLinkHref = location.state ?? "/movies";
+  const refLocation = useRef(location.state);
+  const backLinkHref = refLocation.current ?? "/movies";
 
 
     return(
@@ -53,11 +54,6 @@ const buildLinkClass = ({ isActive }) => {
                       <p>{movieData.overview}</p>
                     </div>
                     <div>
-                        {/* <p>Genres</p>
-                        <p>{movieData.genres.map((genre) => {
-                            return <p key={genre.id}>{genre.name}</p>
-                        })}</p> */}
-                        {/* тут виникає помилка невизначеності масиву при спробі ітерації */}
                     </div>
                 </div>
             </div>

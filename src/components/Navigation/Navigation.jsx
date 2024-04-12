@@ -10,7 +10,7 @@ export default function Navigation() {
 
       
     return(
-        <div className={buildLinkClassforNav}>
+        <div className={css.navDiv}>
             <NavLink to="/" className={buildLinkClassforNav}>Home</NavLink>
             <NavLink to="/movies" className={buildLinkClassforNav}>Movies</NavLink>
         </div>

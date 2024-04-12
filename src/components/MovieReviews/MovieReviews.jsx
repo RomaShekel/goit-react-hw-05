@@ -12,8 +12,8 @@ useEffect(() => {
         if (data === undefined) {
             return;
         }
-        setReviews((prew) => {
-            return [...prew, data]
+        setReviews(() => {
+            return [data]
         })
     }
     SearchMovie()
