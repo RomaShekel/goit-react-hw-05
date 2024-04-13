@@ -12,12 +12,6 @@ export default function MoviesPage({onSearch}) {
     const [params, setParams] = useSearchParams('');
     const value = params.get("query") ?? "";
   
-    const changeFilter = (newFilter) => {
-      params.set("query", newFilter);
-      setParams(params);
-    };
-  
-
     useEffect(() => {
         
       const SearchFilteredFilms = async () => {
@@ -34,10 +28,15 @@ export default function MoviesPage({onSearch}) {
       }
       SearchFilteredFilms()
 
-      },[value, onSearch, setParams])
+      },[value, onSearch])
 
       const location = useLocation();
-
+      const changeFilter = (e) => {
+        e.preventDefault();
+        setParams(params);
+        
+      };
+    
 
     return(
         <div>

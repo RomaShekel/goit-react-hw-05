@@ -1,5 +1,5 @@
 // src/components/App.jsx
-import { useEffect, useState, lazy, Suspense } from 'react';
+import { lazy, Suspense } from 'react';
 import { SearchMoviesByFilter } from '../../films-api';
 import Navigation from '../Navigation/Navigation';
 import { Route, Routes } from "react-router-dom";
@@ -20,7 +20,7 @@ export default function App() {
     <Routes >
       <Route path='/' element={<HomePage/>} />
       <Route path='/movies' element={<MoviesPage onSearch={SearchMoviesByFilter}/>} />
-      <Route path='/movies/:moviesId' element={<MoviesDetailsPage/>} >
+      <Route path='/movies/:movieId' element={<MoviesDetailsPage/>} >
         <Route path='cast' element={<MovieCast/>} />
         <Route path='reviews' element={<MovieReviews/>} />
       </Route>

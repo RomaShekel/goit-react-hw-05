@@ -3,19 +3,23 @@ import { SearchMoviesActors } from "../../films-api";
 import {useParams} from "react-router-dom"
 
 export default function MovieCast() {
-    const {moviesId} =  useParams();
+    const {movieId} =  useParams();
     const [cast, setCast] = useState([]);
 
     useEffect(() => {
         const SearchMovie = async () => {
-            const data = await SearchMoviesActors(moviesId)
-            if (data === undefined) {
-                return;
+            try {
+                const data = await SearchMoviesActors(movieId)
+                if (data === undefined) {
+                    return;
+                }
+                setCast(data)
+            } catch (error) {
+                alert("Whooops, something went wrong, plese try again")
             }
-            setCast(data)
         }
         SearchMovie()
-    }, [moviesId, setCast])
+    }, [movieId, setCast])
 
     return(
         <ul>

@@ -3,21 +3,25 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 export default function MovieReviews() {
- const {moviesId} =  useParams();
+ const {movieId} =  useParams();
  const [reviews, setReviews] = useState([])
 
 useEffect(() => {
     const SearchMovie = async () => {
-        const data = await SearchMoviesReviews(moviesId)
-        if (data === undefined) {
-            return;
+        try {
+            const data = await SearchMoviesReviews(movieId)
+            if (data === undefined) {
+                return;
+            }
+            setReviews(() => {
+                return [data]
+            })
+        } catch (error) {
+            alert("Whooops, something went wrong, plese try again")
         }
-        setReviews(() => {
-            return [data]
-        })
     }
     SearchMovie()
-}, [moviesId, setReviews])
+}, [movieId, setReviews])
     return(
         <div>
             <ul>

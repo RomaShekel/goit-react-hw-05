@@ -9,7 +9,7 @@ import Loader from "../components/Loader/Loader"
 
 export default function MoviesDetailsPage() {
 const [movieData, setMovieData] = useState({})
-const {moviesId} = useParams();
+const {movieId} = useParams();
 const [loader, setLoader] = useState(false);
 
 useEffect(() => {
@@ -17,7 +17,7 @@ useEffect(() => {
     const SearchMovie = async () => {
         try {
             setLoader(true)
-            const data = await SearchMoviesById(moviesId)
+            const data = await SearchMoviesById(movieId)
             if (data === null || data === undefined) {
                 return;
             }
@@ -30,7 +30,7 @@ useEffect(() => {
         }
     }
     SearchMovie()
-}, [moviesId])
+}, [movieId])
 
 const buildLinkClass = ({ isActive }) => {
     return clsx(css.link, isActive && css.active);
