@@ -1,12 +1,13 @@
-import {  useEffect, useRef, useState } from "react"
+import {  useEffect, useState } from "react"
 import axios from 'axios'
 import MovieList from "../components/MovieList/MovieList"
 import css from "./pagesStyles/MoviesPage.module.css"
 import Loader from "../components/Loader/Loader"
 import { useLocation, useSearchParams } from "react-router-dom";
+import { SearchMoviesByFilter } from '../films-api';
 
-export default function MoviesPage({onSearch}) {
-    // const [value, setValue] = useSearchParams('')
+export default function MoviesPage() {
+
     const [movies, setMovies] = useState([]);
     const [loader, setLoader] = useState(false);
     const [params, setParams] = useSearchParams('');
@@ -17,7 +18,7 @@ export default function MoviesPage({onSearch}) {
       const SearchFilteredFilms = async () => {
         try {
           setLoader(true)
-          const data = await onSearch(value.toLowerCase());
+          const data = await SearchMoviesByFilter(value.toLowerCase());
           setMovies(data);
         } catch (error) {
           alert('Whoops, please try again');
@@ -28,12 +29,13 @@ export default function MoviesPage({onSearch}) {
       }
       SearchFilteredFilms()
 
-      },[value, onSearch])
+      },[value])
 
       const location = useLocation();
-      const changeFilter = (e) => {
-        e.preventDefault();
-        setParams(params);
+
+      const changeFilter = (value) => {
+        value.preventDefault();
+        setParams(value);
         
       };
     

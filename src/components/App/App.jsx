@@ -1,6 +1,5 @@
 // src/components/App.jsx
 import { lazy, Suspense } from 'react';
-import { SearchMoviesByFilter } from '../../films-api';
 import Navigation from '../Navigation/Navigation';
 import { Route, Routes } from "react-router-dom";
 
@@ -19,7 +18,7 @@ export default function App() {
       <Suspense fallback={<div>Loading...</div>}>
     <Routes >
       <Route path='/' element={<HomePage/>} />
-      <Route path='/movies' element={<MoviesPage onSearch={SearchMoviesByFilter}/>} />
+      <Route path='/movies' element={<MoviesPage/>} />
       <Route path='/movies/:movieId' element={<MoviesDetailsPage/>} >
         <Route path='cast' element={<MovieCast/>} />
         <Route path='reviews' element={<MovieReviews/>} />
